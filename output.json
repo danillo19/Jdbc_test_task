@@ -1,0 +1,32 @@
+{
+  "result": [
+    [
+      {
+        "name": "Maria Makarova",
+        "totalExpenses": 150,
+        "productStats": [
+          {
+            "name": "PC",
+            "expenses": 100
+          },
+          {
+            "name": "Phone",
+            "expenses": 50
+          }
+        ]
+      },
+      {
+        "name": "Sergey Myasoedov",
+        "totalExpenses": 200,
+        "productStats": [
+          {
+            "name": "PC",
+            "expenses": 200
+          }
+        ]
+      }
+    ]
+  ],
+  "totalDays": 11,
+  "type": "stats"
+}

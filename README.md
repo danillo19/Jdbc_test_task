@@ -30,12 +30,15 @@ $   docker run -d --name ai_test -p 5433:5432 -e POSTGRES_PASSWORD=qwerty -e POS
 By default app works with `POSTGRES_PASSWORD=qwerty`, `POSTGRES_USER=postgres` and `POSTGRES_DB=task`.
 Postgres database started on port `5432` (you can specify external port :)).
 
-Run app
+### Run app
 ```
 $ mvn clean package
 $ java -jar target/TestTask-1.0-SNAPSHOT.jar search input.json output.json
 ```
-
+or
+```
+$ java -jar target/TestTask-1.0-SNAPSHOT.jar stats input.json output.json
+```
 ## How to work with it
 Some testcases are in `src/main/resources/testcases` directory. You can copy it into input.json and run it to see how app works. Result will be in output.json.
 

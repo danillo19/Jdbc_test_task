@@ -32,14 +32,14 @@ public class Filter {
     private final StatsController statsController;
     private final Context context;
 
-    public Filter(SearchController searchController, StatsController statsController) throws SQLException {
+    public Filter(SearchController searchController, StatsController statsController) throws SQLException, ClassNotFoundException {
         this.searchController = searchController;
         this.statsController = statsController;
         this.context = new Context();
     }
 
     public void handleRequest(String inputJson, String outputJson, String operation) throws IOException, SQLException {
-        String json = new String(Files.readAllBytes(Path.of(inputJson)));
+        String json = new String(Files.readAllBytes(new File(inputJson).toPath()));
         JSONObject input = new JSONObject(json);
 
         JSONArray results = new JSONArray();
@@ -59,6 +59,8 @@ public class Filter {
                 output.put(MESSAGE, "Bad input json format");
                 output.put(TYPE, ERROR);
             }
+
+            context.closeConnection();
         } catch (BadCriteriaException | InvalidCriteriaValuesException | InvalidDateFormatException e) {
             output.put(TYPE, ERROR);
             output.put(MESSAGE, e.getMessage());
@@ -72,6 +74,7 @@ public class Filter {
         FileWriter writer = new FileWriter(outputJson);
         writer.write(output.toString());
         writer.flush();
+        context.closeConnection();
     }
 
     private void handleSearch(JSONArray results, JSONObject input) throws SQLException, BadCriteriaException, InvalidCriteriaValuesException {

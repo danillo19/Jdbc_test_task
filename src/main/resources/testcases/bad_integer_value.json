@@ -1,0 +1,9 @@
+
+{
+  "criterias": [
+    {"lastName": "Makarova"},
+    {"productName": "PC", "minTimes": "sdsfgffd"},
+    {"minExpenses": 112, "maxExpenses": "sdfsdf"},
+    {"badCustomers": 3}
+  ]
+}

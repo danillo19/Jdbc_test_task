@@ -37,6 +37,7 @@ public class SearchController {
             try {
                 String productName = (String) criteria.get(PRODUCT_NAME);
                 Integer lowerBound = (Integer) criteria.get(MIN_TIMES);
+                if(lowerBound < 0) throw new InvalidCriteriaValuesException("Min times number should be >= 0");
                 return purchasesService.findCustomersByProductNameWithMinPurchases(productName,lowerBound,ctx);
             }
             catch (ClassCastException ex) {
@@ -47,6 +48,7 @@ public class SearchController {
             try {
                 Integer lowerBound = (Integer) criteria.get(MIN_EXPENSES);
                 Integer upperBound = (Integer) criteria.get(MAX_EXPENSES);
+                if(lowerBound < 0 || upperBound < 0) throw new InvalidCriteriaValuesException("Min and max expenses should be >= 0");
                 return purchasesService.findCustomersByExpensesRange(lowerBound,upperBound,ctx);
             }
             catch (ClassCastException ex) {
@@ -56,6 +58,7 @@ public class SearchController {
         else if(criteria.has(BAD_CUSTOMERS)) {
             try {
                 Integer limitCustomers = (Integer) criteria.get(BAD_CUSTOMERS);
+                if(limitCustomers < 0) throw new InvalidCriteriaValuesException("Bad customers number should be >= 0");
                 return purchasesService.getPassiveCustomers(limitCustomers,ctx);
             }
             catch (ClassCastException ex) {

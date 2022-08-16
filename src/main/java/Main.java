@@ -30,7 +30,7 @@ public class Main {
         try {
             Filter filter = new Filter(searchController, statsController);
             filter.handleRequest(input, output, operation);
-        } catch (SQLException sqlException) {
+        } catch (SQLException | ClassNotFoundException sqlException) {
             System.err.println("No database connection");
             sqlException.printStackTrace();
         }

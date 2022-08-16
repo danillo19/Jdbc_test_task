@@ -1,0 +1,10 @@
+{
+  "criterias": [
+    {"lastName": "Messi"},
+    {"productName": "PC", "minTimes": 2},
+    {"minExpenses": 112, "maxExpenses": 4000},
+    {"badCustomers": 3},
+    {"lastname":  "Ronaldo"},
+    {"productName": "Volleyball Ball", "minTimes": 3}
+  ]
+}

@@ -7,6 +7,8 @@ import services.PurchasesService;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.InvalidPathException;
+import java.nio.file.NoSuchFileException;
 import java.sql.SQLException;
 
 public class Main {
@@ -33,6 +35,18 @@ public class Main {
         } catch (SQLException | ClassNotFoundException sqlException) {
             System.err.println("No database connection");
             sqlException.printStackTrace();
+        }
+        catch (NoSuchFileException ex) {
+            System.err.println("Can't find input.json");
+            ex.printStackTrace();
+        }
+        catch (InvalidPathException ex) {
+            System.err.println("Bad path to input.json");
+            ex.printStackTrace();
+        }
+        catch (IOException ex) {
+            System.err.println("Can't read input.json data");
+            ex.printStackTrace();
         }
     }
 }

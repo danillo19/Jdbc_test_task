@@ -1,5 +1,4 @@
 # Jdbc_test_task
-# test_task
 Simple Postgres(via JDBC) and Java app.
 # Table of contents
 - [Introduction](https://github.com/danillo19/Jdbc_test_task/blob/master/README.md#introduction)

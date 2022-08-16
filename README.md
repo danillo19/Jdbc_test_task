@@ -40,7 +40,7 @@ $ java -jar target/TestTask-1.0-SNAPSHOT.jar search input.json output.json
 ```
 
 ## How to work with it
-Some testcases are in src/main/resources/testcases directory. You can copy it into input.json and run it to see how app works. Result will be in output.json.
+Some testcases are in `src/main/resources/testcases` directory. You can copy it into input.json and run it to see how app works. Result will be in output.json.
 
 
 
